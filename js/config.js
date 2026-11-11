@@ -94,7 +94,7 @@ window.INVITATION = {
      Collez entre les guillemets l'adresse de votre script Google (étape « Apps Script »).
      Tant que c'est vide, le site fonctionne normalement, sans QR code. */
   qr: {
-    api: "",
+    api: "https://script.google.com/macros/s/AKfycbyvibQGFWrHIbO1QZLL8IxD3JKKGtQxwNNJx3-K33ybSjCxz7RAdafHO6yhFL4fr_cr/exec",
     titre: "Votre invitation",
     texte: "Présentez ce code à l'entrée le jour du mariage. Faites-en une capture d'écran ou enregistrez-le sur votre téléphone.",
     bouton: "Enregistrer mon QR code",
