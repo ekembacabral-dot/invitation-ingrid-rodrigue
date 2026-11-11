@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Invitation d'Ingrid &amp; Rodrigue</title>
+  <meta name="description" content="Vous êtes invités à nos fiançailles et à notre dot. Ouvrez l'enveloppe pour découvrir notre invitation.">
+  <meta name="theme-color" content="#2A1D14">
+
+  <!-- Aperçu quand le lien est partagé (WhatsApp, Messenger…).
+       Après la mise en ligne, remplacez l'adresse de l'image par l'adresse complète,
+       par exemple : https://votre-site.vercel.app/photos/hero.jpg -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ingrid &amp; Rodrigue vous invitent">
+  <meta property="og:description" content="Ouvrez l'enveloppe pour découvrir notre invitation.">
+  <meta property="og:image" content="photos/hero.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cinzel:wght@400..600&family=Jost:wght@300..500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/config.js"></script>
+</head>
+<body class="locked">
+
+  <noscript>
+    <style>.intro{display:none}body.locked{overflow:auto}</style>
+    <p style="padding:2rem;font-family:sans-serif;color:#F6EEDF">Ce site d'invitation a besoin de JavaScript pour s'afficher.</p>
+  </noscript>
+
+  <!-- ===== L'enveloppe ===== -->
+  <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Invitation de mariage">
+    <div class="intro-inner">
+      <div class="env" id="env">
+        <div class="env-back"></div>
+
+        <div class="env-card">
+          <p class="card-top" id="cardTop"></p>
+          <p class="card-name" id="cardN1"></p>
+          <p class="card-amp" aria-hidden="true">&amp;</p>
+          <p class="card-name" id="cardN2"></p>
+          <p class="card-date" id="cardDate"></p>
+        </div>
+
+        <div class="env-front env-left"></div>
+        <div class="env-front env-right"></div>
+        <div class="env-front env-bottom"></div>
+
+        <div class="flap">
+          <div class="flap-face flap-out"></div>
+          <div class="flap-face flap-in"></div>
+        </div>
+
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <defs>
+              <radialGradient id="wax" cx="36%" cy="30%" r="80%">
+                <stop offset="0" stop-color="#8F3F27"/>
+                <stop offset=".55" stop-color="#5E2616"/>
+                <stop offset="1" stop-color="#3E170D"/>
+              </radialGradient>
+              <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="4" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="9"/>
+              </filter>
+            </defs>
+            <circle cx="50" cy="50" r="41" fill="url(#wax)" filter="url(#rough)"/>
+            <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(246,238,223,.3)" stroke-width="1.2"/>
+            <ellipse cx="38" cy="30" rx="14" ry="7" fill="rgba(255,255,255,.1)" transform="rotate(-28 38 30)"/>
+            <text id="sealText" x="50" y="60" text-anchor="middle" font-size="31" fill="#F1DFC2"></text>
+          </svg>
+        </div>
+      </div>
+
+      <button class="btn btn--ghost open-btn" id="openBtn" type="button"></button>
+    </div>
+  </div>
+
+  <!-- ===== Le site (construit depuis js/config.js) ===== -->
+  <main id="site" inert></main>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

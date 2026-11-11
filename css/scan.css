@@ -1,0 +1,54 @@
+/* Page de contrôle d'entrée — simple, lisible, pour le téléphone de l'accueil */
+:root {
+  --creme: #F6EEDF; --terra: #9C4A2E; --brun: #3A2218; --brun-2: #2B1810;
+  --ok: #2F7A4B; --warn: #B5701B; --bad: #A8352A;
+  --f-display: 'Bodoni Moda', 'Didot', serif;
+  --f-body: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--brun-2); color: var(--creme); font-family: var(--f-body); font-size: 1.0625rem; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.app { width: min(100% - 2rem, 28rem); margin: 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 0 max(2rem, env(safe-area-inset-bottom)); }
+h1 { font: 500 clamp(1.9rem, 8vw, 2.4rem)/1.15 var(--f-display); margin: 1.5rem 0 .6rem; text-align: center; }
+.lead { text-align: center; color: #EBDCC3; margin: 0 0 1.8rem; }
+
+label { display: block; margin-bottom: .4rem; font-size: .95rem; color: #EBDCC3; }
+input { width: 100%; min-height: 3.2rem; padding: .7rem 1rem; font: 500 1.15rem var(--f-body); color: var(--brun-2); background: var(--creme); border: 2px solid transparent; border-radius: 2px; }
+input:focus-visible, .btn:focus-visible, .link:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 3.4rem; margin-top: 1rem; padding: .8rem 1.2rem; font: 500 1.05rem var(--f-body); color: var(--creme); background: var(--terra); border: 1px solid transparent; border-radius: 2px; cursor: pointer; }
+.btn:active { transform: scale(.98); }
+.btn--ghost { background: transparent; border-color: rgba(246, 238, 223, .55); }
+.btn--light { background: var(--creme); color: var(--brun-2); }
+.err { min-height: 1.4rem; margin: .8rem 0 0; color: #FFB4A8; text-align: center; }
+.link { background: none; border: 0; padding: .5rem; color: #EBDCC3; font: inherit; text-decoration: underline; cursor: pointer; }
+
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.stat { margin: 0; font: 500 1.15rem var(--f-display); }
+.reader { overflow: hidden; background: #000; border-radius: 2px; min-height: 12rem; }
+.reader video { width: 100% !important; display: block; }
+.manual { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid rgba(246, 238, 223, .25); }
+.manual .row { display: flex; gap: .6rem; }
+.manual .row input { text-transform: uppercase; letter-spacing: .12em; }
+.manual .btn { width: auto; margin-top: 0; min-height: 3.2rem; }
+
+/* Résultats de la recherche par nom */
+.found { list-style: none; margin: .8rem 0 0; padding: 0; display: grid; gap: .5rem; }
+.found-item { display: block; width: 100%; padding: .8rem 1rem; text-align: left; color: var(--brun-2); background: var(--creme); border: 0; border-left: 6px solid var(--ok); border-radius: 2px; font: inherit; cursor: pointer; }
+.found-item.is-in { border-left-color: var(--warn); }
+.found-name { display: block; font-weight: 500; font-size: 1.1rem; overflow-wrap: anywhere; }
+.found-meta { display: block; font-size: .95rem; color: #5b4538; }
+.found-empty { color: #EBDCC3; padding: .4rem 0; }
+
+/* Résultat plein écran */
+.result { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 2rem 1.5rem; text-align: center; color: #fff; background: var(--ok); }
+.result.is-warn { background: var(--warn); }
+.result.is-bad { background: var(--bad); }
+.result-inner { width: min(100%, 26rem); }
+.res-title { margin: 0; font: 500 clamp(1.9rem, 9vw, 2.6rem)/1.15 var(--f-display); }
+.res-name { margin: 1.6rem 0 0; font: 500 clamp(1.6rem, 7vw, 2.1rem)/1.25 var(--f-body); overflow-wrap: anywhere; }
+.res-meta { margin: .6rem 0 0; font-size: 1.35rem; }
+.res-note { margin: .8rem 0 0; font-size: 1.05rem; opacity: .95; }
+.result .btn { margin-top: 2.4rem; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
